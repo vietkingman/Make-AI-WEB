@@ -1,57 +1,60 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700;800&display=swap');
 @import "tailwindcss";
 
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-display: "Space Grotesk", sans-serif;
-  
-  --color-brand-bg: #fff8ef;
-  --color-brand-card: #fffdf8;
-  --color-brand-card-light: #fff2df;
-  --color-brand-blue: #0ea5e9;
-  --color-brand-purple: #ec4899;
-  --color-brand-orange: #f97316;
-  
-  --animate-float: float 6s ease-in-out infinite;
-  --animate-pulse-slow: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-20px); }
+  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
 }
 
 @layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
-    @apply font-sans antialiased text-slate-900 selection:bg-brand-blue/20;
-    background-color: var(--color-brand-bg);
-    background-image:
-      radial-gradient(circle at top left, rgba(14, 165, 233, 0.16), transparent 28%),
-      radial-gradient(circle at top right, rgba(236, 72, 153, 0.14), transparent 24%),
-      radial-gradient(circle at bottom center, rgba(249, 115, 22, 0.12), transparent 30%),
-      linear-gradient(180deg, #fffaf3 0%, #fff5ea 100%);
+    margin: 0;
+    min-width: 320px;
+    background:
+      radial-gradient(circle at 20% 0%, rgba(34, 211, 238, 0.18), transparent 28%),
+      radial-gradient(circle at 85% 10%, rgba(139, 92, 246, 0.2), transparent 30%),
+      linear-gradient(180deg, #020617 0%, #0f172a 48%, #020617 100%);
+    color: #f8fafc;
+    font-family: var(--font-sans);
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
   }
-  
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-display tracking-tight;
+
+  ::selection {
+    background: rgba(34, 211, 238, 0.28);
+    color: white;
   }
 }
 
-.bg-mesh {
-  background-image: 
-    radial-gradient(at 0% 0%, rgba(14, 165, 233, 0.16) 0px, transparent 50%),
-    radial-gradient(at 100% 0%, rgba(236, 72, 153, 0.14) 0px, transparent 50%),
-    radial-gradient(at 50% 100%, rgba(249, 115, 22, 0.1) 0px, transparent 50%);
-}
-
-.glass {
-  @apply border border-white/70 bg-white/70 backdrop-blur-md shadow-[0_16px_40px_rgba(249,115,22,0.08)];
-}
-
-.neon-border {
-  @apply border border-brand-blue/20 shadow-[0_10px_30px_rgba(14,165,233,0.15)];
+.font-display {
+  font-family: var(--font-display);
 }
 
 .text-gradient {
-  @apply bg-clip-text text-transparent bg-gradient-to-r from-brand-blue via-brand-purple to-brand-orange;
+  background: linear-gradient(90deg, #67e8f9 0%, #a78bfa 48%, #6ee7b7 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.bg-grid {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: 42px 42px;
+}
+
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }

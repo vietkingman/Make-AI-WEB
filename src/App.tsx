@@ -1,73 +1,32 @@
-import { AnimatePresence } from 'motion/react';
-import { useEffect } from 'react';
-import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
-import Footer from '@/components/layout/Footer';
-import Navbar from '@/components/layout/Navbar';
-import { LanguageProvider } from '@/lib/language';
-import About from '@/pages/About';
-import Blog from '@/pages/Blog';
-import BlogPost from '@/pages/BlogPost';
-import Contact from '@/pages/Contact';
-import Download from '@/pages/Download';
-import Features from '@/pages/Features';
-import Gameplay from '@/pages/Gameplay';
-import Home from '@/pages/Home';
-import Leaderboard from '@/pages/Leaderboard';
-import Rewards from '@/pages/Rewards';
-
-const routes = [
-  { path: '/', element: <Home /> },
-  { path: '/gameplay', element: <Gameplay /> },
-  { path: '/features', element: <Features /> },
-  { path: '/leaderboard', element: <Leaderboard /> },
-  { path: '/blog', element: <Blog /> },
-  { path: '/blog/:slug', element: <BlogPost /> },
-  { path: '/download', element: <Download /> },
-  { path: '/rewards', element: <Rewards /> },
-  { path: '/about', element: <About /> },
-  { path: '/contact', element: <Contact /> },
-];
-
-function ScrollToTop() {
-  const { pathname } = useLocation();
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
-
-  return null;
-}
-
-function AppShell() {
-  const location = useLocation();
-
-  return (
-    <div className="relative flex min-h-screen flex-col selection:bg-brand-blue/30 selection:text-white">
-      <ScrollToTop />
-      <Navbar />
-      <main className="flex-grow">
-        <AnimatePresence mode="wait">
-          <div key={location.pathname}>
-            <Routes location={location}>
-              {routes.map((route) => (
-                <Route path={route.path} element={route.element} />
-              ))}
-            </Routes>
-          </div>
-        </AnimatePresence>
-      </main>
-      <Footer />
-    </div>
-  );
-}
+import Layout from '@/components/Layout';
+import BlogDetailPage from '@/pages/BlogDetailPage';
+import BlogListPage from '@/pages/BlogListPage';
+import HomePage from '@/pages/HomePage';
+import LeaderboardPage from '@/pages/LeaderboardPage';
+import NotFoundPage from '@/pages/NotFoundPage';
+import OrdersPage from '@/pages/OrdersPage';
+import RewardsPage from '@/pages/RewardsPage';
+import ShippingPage from '@/pages/ShippingPage';
+import WarehousePage from '@/pages/WarehousePage';
 
 export default function App() {
   return (
     <BrowserRouter>
-      <LanguageProvider>
-        <AppShell />
-      </LanguageProvider>
+      <Routes>
+        <Route element={<Layout />}>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/blog" element={<BlogListPage />} />
+          <Route path="/blog/:slug" element={<BlogDetailPage />} />
+          <Route path="/leaderboard" element={<LeaderboardPage />} />
+          <Route path="/warehouse" element={<WarehousePage />} />
+          <Route path="/orders" element={<OrdersPage />} />
+          <Route path="/shipping" element={<ShippingPage />} />
+          <Route path="/rewards" element={<RewardsPage />} />
+          <Route path="*" element={<NotFoundPage />} />
+        </Route>
+      </Routes>
     </BrowserRouter>
   );
 }
