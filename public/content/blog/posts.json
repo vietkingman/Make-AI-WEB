@@ -1,0 +1,42 @@
+[
+  {
+    "id": "blog_001",
+    "status": "published",
+    "language": "vi",
+    "title": "Cach Livestream Master bien ap luc ban hang thanh gameplay 4 phase",
+    "slug": "livestream-master-gameplay-4-phase",
+    "summary": "Mot goc nhin nhanh ve chuoi gameplay gom hang, loc spam, chot don va van chuyen trong Livestream Master.",
+    "category": "Gameplay",
+    "tags": ["livestream", "gameplay", "thuong-mai-dien-tu"],
+    "cover": "https://images.unsplash.com/photo-1556742502-ec7c0e9f34b1?auto=format&fit=crop&w=1400&q=80",
+    "author": "Livestream Master Team",
+    "publishedAt": "2026-06-08",
+    "seoTitle": "Livestream Master va gameplay 4 phase",
+    "seoDescription": "Tim hieu gameplay 4 phase cua Livestream Master: gom hang, loc spam, chot don va van chuyen.",
+    "content": [
+      "Livestream Master duoc thiet ke nhu mot vong lap van hanh thuong mai dien tu thu nho. Nguoi choi khong chi bam phim de dat diem, ma phai xu ly mot phien live tu luc chuan bi hang den luc giao don thanh cong.",
+      "Phase 1 tap trung vao toc do va kha nang nhan dien san pham. Phase 2 day nguoi choi vao ap luc bao ve kenh truoc spam. Phase 3 dua doanh thu len cao nhat bang cac ma chot don roi lien tuc. Phase 4 bien thanh qua kinh doanh thanh thu thach can luc va timing.",
+      "Day la cau truc rat hop voi mot website blog tu dong: moi bai viet co the khai thac mot phase, mot meo choi, hoac mot cau chuyen ve cach game mo phong ap luc livestream thuc te."
+    ]
+  },
+  {
+    "id": "blog_002",
+    "status": "published",
+    "language": "vi",
+    "title": "Leaderboard nen tinh diem the nao de cong bang cho 4 game",
+    "slug": "leaderboard-4-game-tinh-diem-cong-bang",
+    "summary": "De leaderboard hap dan, doanh thu nen di chung voi uy tin kenh, accuracy va so don giao thanh cong.",
+    "category": "Leaderboard",
+    "tags": ["leaderboard", "score", "google-sheets"],
+    "cover": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1400&q=80",
+    "author": "Livestream Master Team",
+    "publishedAt": "2026-06-08",
+    "seoTitle": "Cong thuc leaderboard cho 4 game Livestream Master",
+    "seoDescription": "Goi y cach tinh rank dua tren doanh thu, uy tin kenh, accuracy va don giao thanh cong.",
+    "content": [
+      "Neu chi sap xep theo diem tong, leaderboard se rat de bi lech vi moi game co co che khac nhau. Cach on hon la uu tien doanh thu, sau do dung uy tin kenh, so don va accuracy lam dieu kien phu.",
+      "Voi Phase 1, chi so quan trong la gia tri hang nhap kho va ty le nhat dung. Phase 2 can nhan manh channel HP vi ban nham khach that la loi nang. Phase 3 nen uu tien doanh thu chot don. Phase 4 nen tinh them delivered orders de phan biet nguoi choi giao hang on dinh.",
+      "Khi Make hoac Apps Script ghi data vao Google Sheets, moi liveId nen duoc upsert thay vi append trung lap. Nhu vay leaderboard sach va phu hop de trinh bay trong do an."
+    ]
+  }
+]
