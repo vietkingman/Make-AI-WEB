@@ -16,6 +16,7 @@ type BlogApiDetailResponse = {
 };
 
 const API_URL = import.meta.env.VITE_BLOG_API_URL as string | undefined;
+const STATIC_POSTS_URL = '/content/blog/posts.json';
 const PUBLIC_STATUSES = new Set(['PUBLISHED', 'READY', 'DONE']);
 
 function asString(value: unknown) {
@@ -148,7 +149,18 @@ function publicOnly(posts: BlogPost[]) {
 
 export async function getBlogPosts(): Promise<BlogPost[]> {
   if (!API_URL) {
-    return sortPosts(publicOnly(fallbackPosts));
+    try {
+      const response = await fetch(STATIC_POSTS_URL, { cache: 'no-store' });
+      if (!response.ok) {
+        throw new Error('Static posts file not found.');
+      }
+
+      const posts = (await response.json()) as RawPost[];
+      return sortPosts(publicOnly(posts.map(normalizePost)));
+    } catch (error) {
+      console.warn(error);
+      return sortPosts(publicOnly(fallbackPosts));
+    }
   }
 
   try {
@@ -167,7 +179,8 @@ export async function getBlogPosts(): Promise<BlogPost[]> {
 
 export async function getBlogPostBySlug(slug: string): Promise<BlogPost | null> {
   if (!API_URL) {
-    return publicOnly(fallbackPosts).find((post) => post.slug === slug) ?? null;
+    const posts = await getBlogPosts();
+    return posts.find((post) => post.slug === slug) ?? null;
   }
 
   try {

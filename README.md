@@ -2,7 +2,7 @@
 
 Premium Vite + React + TypeScript website for the `Livestream Master` e-commerce game project. The site includes a runtime SEO blog system powered by Google Sheets, Make.com AI automation, Gemini, and a Google Apps Script JSONP API.
 
-The important architecture decision: GitHub hosts only the website source code. Blog posts are stored in Google Sheets and fetched at runtime, so Netlify does not need to rebuild every time Make.com creates a new post.
+Primary automation mode: Make.com writes generated posts into `public/content/blog/posts.json` in GitHub, then Netlify auto deploys from the connected `main` branch. The optional Apps Script JSONP API is kept as a fallback/alternate mode only.
 
 ## 1. Run Locally
 
@@ -63,7 +63,9 @@ On Netlify, add the same value in:
 Site configuration -> Environment variables
 ```
 
-If `VITE_BLOG_API_URL` is missing or the API fails, the website uses fallback demo posts from `src/data/fallbackPosts.ts`.
+If `VITE_BLOG_API_URL` is missing, the website reads `/content/blog/posts.json`. If that file fails, it uses fallback demo posts from `src/data/fallbackPosts.ts`.
+
+For the Make -> GitHub -> Netlify flow, leave `VITE_BLOG_API_URL` empty.
 
 ## 4. Deploy Google Apps Script
 
@@ -113,7 +115,27 @@ The frontend uses JSONP:
 
 ## 5. Make.com Automation Flow
 
-Recommended scenario:
+Recommended scenario with GitHub publishing:
+
+```text
+Google Sheets - Watch Rows on Blog_Idea
+-> Filter status is blank, READY, or ERROR_RETRY
+-> Google Sheets - Update Row: PROCESSING
+-> Gemini - Generate strict SEO blog JSON
+-> JSON - Parse JSON
+-> Optional Gemini Image - Generate 16:9 cover
+-> Optional: upload cover to public/content/blog/covers/{slug}.png through GitHub API
+-> HTTP - GitHub API GET public/content/blog/posts.json
+-> Tools/JSON - append generated post object to posts array
+-> HTTP - GitHub API PUT public/content/blog/posts.json
+-> Google Sheets - Add Row to Blog_Storage
+-> Google Sheets - Update Blog_Idea row: DONE
+-> Netlify auto deploys because GitHub main changed
+```
+
+No Apps Script is required for this primary flow.
+
+Alternate Apps Script scenario:
 
 ```text
 Google Sheets - Watch Rows on Blog_Idea

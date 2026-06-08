@@ -1,0 +1,46 @@
+[
+  {
+    "post_id": "post_idea_001",
+    "source_idea_id": "idea_001",
+    "status": "PUBLISHED",
+    "title": "Vì sao leaderboard game livestream cần tính cả doanh thu và uy tín kênh",
+    "slug": "leaderboard-game-livestream-doanh-thu-uy-tin",
+    "summary": "Một leaderboard tốt không chỉ xếp hạng điểm số, mà còn phản ánh doanh thu, uy tín kênh và khả năng xử lý đơn hàng trong phiên live.",
+    "category": "Leaderboard",
+    "tags": "leaderboard, livestream game, gamification, Google Sheets",
+    "cover": "/content/blog/covers/default-cover.svg",
+    "author": "Livestream Master Team",
+    "language": "vi",
+    "seo_title": "Leaderboard livestream game: doanh thu và uy tín kênh",
+    "seo_description": "Tìm hiểu cách Livestream Master thiết kế leaderboard dựa trên doanh thu, uy tín kênh, đơn hàng và độ chính xác.",
+    "content_json": {
+      "intro": "Trong Livestream Master, leaderboard không nên chỉ là một bảng điểm cao nhất. Vì game mô phỏng một phiên livestream bán hàng, thứ hạng cần phản ánh cả kết quả kinh doanh lẫn chất lượng vận hành.",
+      "sections": [
+        {
+          "heading": "Doanh thu cho thấy hiệu quả chốt đơn",
+          "body": "Doanh thu là chỉ số dễ hiểu nhất với người chơi và hội đồng chấm điểm. Nó kết nối trực tiếp giữa hành động trong game với mục tiêu thương mại điện tử: bán đúng hàng, chốt đúng lúc và chuyển đơn thành giá trị thật.",
+          "bullets": ["Gom hàng đúng làm tăng cơ hội bán", "Chốt đơn tốt làm tăng tổng doanh thu", "Giao hàng thành công giúp doanh thu được ghi nhận"]
+        },
+        {
+          "heading": "Uy tín kênh giúp leaderboard công bằng hơn",
+          "body": "Nếu chỉ tính tiền, người chơi có thể bỏ qua trải nghiệm khách hàng. Chỉ số uy tín kênh buộc người chơi phải lọc spam cẩn thận, tránh bắn nhầm khách thật và giữ môi trường livestream chuyên nghiệp.",
+          "bullets": ["Spam bị xử lý đúng giúp kênh sạch", "Bắn nhầm khách làm tụt HP", "HP thấp khiến thành tích mất cân bằng"]
+        }
+      ],
+      "conclusion": "Một leaderboard tốt biến game thành mô hình vận hành có logic: bán được hàng, giữ được uy tín và giao được đơn.",
+      "cta": {
+        "label": "Xem leaderboard",
+        "href": "/leaderboard"
+      }
+    },
+    "content_plain": "Leaderboard của Livestream Master nên kết hợp doanh thu, uy tín kênh, số đơn và độ chính xác.",
+    "published_at": "2026-06-08",
+    "published_url": "/blog/leaderboard-game-livestream-doanh-thu-uy-tin",
+    "github_path": "public/content/blog/posts.json",
+    "netlify_deploy_status": "GITHUB_AUTO_DEPLOY",
+    "created_at": "2026-06-08",
+    "updated_at": "2026-06-08",
+    "error_message": "",
+    "image_prompt": "A premium ecommerce livestream game leaderboard dashboard with revenue, reputation, and order metrics."
+  }
+]
